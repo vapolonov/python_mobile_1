@@ -3,6 +3,7 @@ from selene.support.shared import browser
 from appium import webdriver
 
 import config
+from utils import attach
 
 
 @pytest.fixture(scope='function', autouse=True)
@@ -12,12 +13,12 @@ def driver_management():
     )
     browser.config.timeout = 4
     yield
+    attach.add_html(browser)
+    attach.add_screenshot(browser)
+    attach.add_xml(browser)
+    attach.add_video(browser.driver.session_id)
     browser.quit()
 
-#
-# @pytest.fixture(scope='session', autouse=True)
-# def load_env():
-#     load_dotenv()
 
 
 

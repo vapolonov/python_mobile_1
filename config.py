@@ -27,7 +27,6 @@ class Settings(pydantic.BaseSettings):
 
     # --- Remote Driver ---
     remote_url: str = 'http://127.0.0.1:4723/wd/hub'  # it's a default appium server url
-    # remote_url: str = 'http://hub.browserstack.com/wd/hub'
 
     # --- Selene ---
     timeout: float = 6.0
